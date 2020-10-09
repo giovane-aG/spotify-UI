@@ -1,0 +1,12 @@
+{
+  "name": "spotifyUI",
+  "displayName": "spotifyUI",
+  "expo": {
+    "name": "spotifyUI",
+    "slug": "spotifyUI",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
