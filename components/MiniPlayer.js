@@ -7,6 +7,8 @@ import albumPic from "../assets/images/videoGame.jpg";
 
 const MiniPlayer = () => {
   const dimensions = Dimensions.get("window");
+  const [playIcon, setPlayIcon] = React.useState("play");
+  const [heartIcon, setHeartIcon] = React.useState("heart-o");
 
   return (
     <View style={[styles.container, { width: dimensions.width }]}>
@@ -17,10 +19,38 @@ const MiniPlayer = () => {
           <Text style={styles.artistName}>Bear McCreary</Text>
         </View>
       </View>
-      <FontAwesome name="heart" size={14} color="#FDFDFD" />
-      <FontAwesome name="play" size={14} color="#FDFDFD" />
+      <FontAwesome
+        name={heartIcon}
+        size={20}
+        onPress={toggleHeartIcon}
+        color="#FDFDFD"
+        style={styles.fontAwesome}
+      />
+      <FontAwesome
+        name={playIcon}
+        onPress={togglePlayIcon}
+        size={20}
+        color="#FDFDFD"
+        style={styles.fontAwesome}
+      />
     </View>
   );
+
+  function togglePlayIcon() {
+    if (playIcon == "play") {
+      setPlayIcon("pause");
+    } else {
+      setPlayIcon("play");
+    }
+  }
+
+  function toggleHeartIcon() {
+    if (heartIcon == "heart") {
+      setHeartIcon("heart-o");
+    } else {
+      setHeartIcon("heart");
+    }
+  }
 };
 
 export default MiniPlayer;
@@ -52,5 +82,8 @@ const styles = StyleSheet.create({
   },
   artistName: {
     color: "#FDFDFD",
+  },
+  fontAwesome: {
+    marginHorizontal: 10,
   },
 });
