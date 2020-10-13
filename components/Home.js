@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet, TouchableOpacity } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import Constants from "expo-constants";
 import List from "./List";
@@ -37,12 +37,14 @@ export default function Home() {
     <ScrollView
       style={[styles.container, { marginTop: Constants.statusBarHeight }]}
     >
-      <Feather
-        name="settings"
-        size={24}
-        color="white"
-        style={styles.settingsIcon}
-      />
+      <TouchableOpacity>
+        <Feather
+          name="settings"
+          size={24}
+          color="white"
+          style={styles.settingsIcon}
+        />
+      </TouchableOpacity>
       <List data={data} name="Tocadas recentemente" first={true} />
       <List data={data} name="Escute de novo" />
       <List data={data} name="Jazz in the background" />
