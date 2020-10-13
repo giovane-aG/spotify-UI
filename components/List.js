@@ -1,14 +1,15 @@
 import React from "react";
-import { View, FlatList, Image, Text, StyleSheet } from "react-native";
-import Constants from "expo-constants";
+import {
+  View,
+  FlatList,
+  Image,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 
 export default function List(props) {
-  const { name, data, first } = props;
-
-  const containerStyle = [
-    styles.container,
-    first && { marginTop: Constants.statusBarHeight * 4 },
-  ];
+  const { name, data } = props;
 
   return (
     <View style={styles.container}>
@@ -27,10 +28,10 @@ export default function List(props) {
 
   function renderPlayLists({ item }) {
     return (
-      <View style={styles.playListContainer}>
+      <TouchableOpacity style={styles.playListContainer}>
         <Image style={styles.playlistImg} source={item.img} />
         <Text style={styles.h2}>{item.title}</Text>
-      </View>
+      </TouchableOpacity>
     );
   }
 }
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#111",
-    marginTop: 15,
+    marginTop: 10,
   },
 
   playListContainer: {
@@ -55,12 +56,15 @@ const styles = StyleSheet.create({
 
   h2: {
     color: "#FFF",
-    fontSize: 16,
     fontWeight: "bold",
+    width: 140,
+    overflow: "hidden",
   },
 
+  list: {},
+
   playlistImg: {
-    width: 180,
-    height: 180,
+    width: 140,
+    height: 140,
   },
 });
